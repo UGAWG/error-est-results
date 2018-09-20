@@ -20,9 +20,5 @@ def iteration_steps
   sh("cp #{project(1)}.meshb Flow")
   sh("(cd Flow && ref_acceptance -u tanh3 #{project}.meshb #{project}-scalar.solb )")
   sh("(cd Flow && ref_metric_test --lp #{project}.meshb #{project}-scalar.solb 2 3 #{rad_nl["adapt_complexity"]} #{project}-metric.solb --kexact )")
-  if ( iteration > 1 ) then
-    sh("(cd Flow && #{mpirun_command} -np #{number_of_processors} ~/refine/zoltan/src/ref_driver -i #{project}.meshb -m #{project}-metric.solb -o #{project(@iteration+1)} < /dev/null | tee refine_out > #{project}_refine_out)")
-  else
-    sh("(cd Flow && ref_driver -i #{project}.meshb -m #{project}-metric.solb -o #{project(@iteration+1)} < /dev/null | tee refine_out > #{project}_refine_out)")
-  end
+  sh("(cd Flow && #{mpirun_command} -np #{number_of_processors} ~/refine/zoltan/src/ref_driver -i #{project}.meshb -m #{project}-metric.solb -o #{project(@iteration+1)} < /dev/null | tee refine_out > #{project}_refine_out)")
 end
