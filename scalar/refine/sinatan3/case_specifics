@@ -1,0 +1,24 @@
+
+root_project 'sinatan'
+
+steps_per_complexity = 10
+complexity = 1000.0*2**(iteration/steps_per_complexity)
+complexity = [complexity, 50.0e5].min
+rad_nl["adapt_complexity"] = complexity
+
+nodes = [[1,complexity.to_i/3000].max,28].min
+number_of_processors nodes
+
+first_iteration 1
+last_iteration 90
+
+def iteration_steps
+  def sh(comm)
+    puts comm
+    system(comm)
+  end
+  sh("cp #{project(1)}.meshb Flow")
+  sh("(cd Flow && ref_acceptance -u sinatan3 #{project}.meshb #{project}-scalar.solb )")
+  sh("(cd Flow && ref_metric_test --lp #{project}.meshb #{project}-scalar.solb 2 3 #{rad_nl["adapt_complexity"]} #{project}-metric.solb --kexact )")
+  sh("(cd Flow && #{mpirun_command} -np #{number_of_processors} ~/refine/zoltan/src/ref_driver -i #{project}.meshb -m #{project}-metric.solb -o #{project(@iteration+1)} < /dev/null | tee refine_out > #{project}_refine_out)")
+end
