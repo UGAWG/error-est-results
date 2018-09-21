@@ -183,8 +183,8 @@ $!XYLINEAXIS
   YDETAIL 1
     {
     COORDSCALE = LOG
-    RANGEMIN = 1.0e-5
-    RANGEMAX = 1
+    RANGEMIN = 1.0e-3
+    RANGEMAX = 1.0e+1
     GRSPACING = 0.002
     TITLE
       {
