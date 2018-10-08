@@ -6,7 +6,7 @@ complexity = 1000.0*2**(iteration/steps_per_complexity)
 complexity = [complexity, 50.0e5].min
 rad_nl["adapt_complexity"] = complexity
 
-nodes = [[1,complexity.to_i/3000].max,56].min
+nodes = [[1,complexity.to_i/3000].max,14].min
 number_of_processors nodes
 
 first_iteration 1
