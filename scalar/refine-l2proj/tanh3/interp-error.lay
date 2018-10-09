@@ -1,44 +1,46 @@
 #!MC 1410
 $!VarSet |LFDSFN1| = '"../../refine/tanh3/interp-error.dat" "interp-error.dat" "second.dat"'
 $!VarSet |LFDSVL1| = '"V1" "V2"'
-$!SetStyleBase Factory
-$!GlobalPaper 
-  PaperSizeInfo
+$!SETSTYLEBASE FACTORY
+$!PLOTOPTIONS 
+  SUBDIVIDEALLCELLS = NO
+$!GLOBALPAPER 
+  PAPERSIZEINFO
     {
-    Letter
+    LETTER
       {
-      Width = 8.5
-      Height = 11
-      LeftHardClipOffset = 0.125
-      RightHardClipOffset = 0.125
-      TopHardClipOffset = 0.125
-      BottomHardClipOffset = 0.125
+      WIDTH = 8.5
+      HEIGHT = 11
+      LEFTHARDCLIPOFFSET = 0.125
+      RIGHTHARDCLIPOFFSET = 0.125
+      TOPHARDCLIPOFFSET = 0.125
+      BOTTOMHARDCLIPOFFSET = 0.125
       }
     A3
       {
-      Width = 11.693
-      Height = 16.535
+      WIDTH = 11.693
+      HEIGHT = 16.535
       }
     A4
       {
-      Width = 8.2677
-      Height = 11.693
+      WIDTH = 8.2677
+      HEIGHT = 11.693
       }
     }
-$!Page 
-  Name = 'Untitled'
-  PaperAttributes
+$!PAGE 
+  NAME = 'Untitled'
+  PAPERATTRIBUTES
     {
-    BackgroundColor = White
-    IsTransparent = Yes
-    OrientPortrait = No
-    ShowGrid = Yes
-    ShowRuler = Yes
-    ShowPaper = Yes
-    PaperSize = Letter
-    RulerSpacing = OneInch
-    PaperGridSpacing = HalfInch
-    RegionInWorkArea
+    BACKGROUNDCOLOR = WHITE
+    ISTRANSPARENT = YES
+    ORIENTPORTRAIT = NO
+    SHOWGRID = YES
+    SHOWRULER = YES
+    SHOWPAPER = YES
+    PAPERSIZE = LETTER
+    RULERSPACING = ONEINCH
+    PAPERGRIDSPACING = HALFINCH
+    REGIONINWORKAREA
       {
       X1 = 0.25
       Y1 = 0.25
@@ -47,180 +49,185 @@ $!Page
       }
     }
 ### Frame Number 1 ###
-$!ReadDataSet  '|LFDSFN1|'
-  InitialPlotType = XYLine
-  IncludeText = No
-  IncludeGeom = No
-  AssignStrandIDs = Yes
-  VarLoadMode = ByName
-  VarNameList = '|LFDSVL1|'
-$!RemoveVar |LFDSVL1|
-$!RemoveVar |LFDSFN1|
-$!FrameLayout 
-  ShowBorder = No
-  ShowHeader = No
-  HeaderColor = Red
-  XYPos
+$!READDATASET  '|LFDSFN1|'
+  INITIALPLOTTYPE = XYLINE
+  INCLUDETEXT = NO
+  INCLUDEGEOM = NO
+  ASSIGNSTRANDIDS = YES
+  VARLOADMODE = BYNAME
+  VARNAMELIST = '|LFDSVL1|'
+$!REMOVEVAR |LFDSVL1|
+$!REMOVEVAR |LFDSFN1|
+$!FRAMELAYOUT 
+  SHOWBORDER = NO
+  SHOWHEADER = NO
+  HEADERCOLOR = RED
+  XYPOS
     {
     X = 0.25
     Y = 0.25
     }
-  Width = 10.5
-  Height = 8
-$!ThreeDAxis 
-  AspectRatioLimit = 10000
-  BoxAspectRatioLimit = 10000
-$!PlotType  = XYLine
-$!FrameName  = 'Frame 001'
-$!GlobalTime 
-  SolutionTime = 0
-$!DeleteLineMaps 
-$!ActiveLineMaps  =  [1-3]
-$!GlobalLinePlot 
-  DataLabels
+  WIDTH = 10.5
+  HEIGHT = 8
+$!THREEDAXIS 
+  ASPECTRATIOLIMIT = 10000
+  BOXASPECTRATIOLIMIT = 10000
+$!PLOTTYPE  = XYLINE
+$!FRAMENAME  = 'Frame 001'
+$!GLOBALTIME 
+  SOLUTIONTIME = 0
+$!DELETELINEMAPS 
+$!ACTIVELINEMAPS  =  [1-3]
+$!GLOBALLINEPLOT 
+  DATALABELS
     {
-    DistanceSkip = 5
+    DISTANCESKIP = 5
     }
-  Legend
+  LEGEND
     {
-    Show = Yes
-    Box
+    SHOW = YES
+    BOX
       {
-      BoxType = None
+      BOXTYPE = NONE
       }
-    XYPos
+    XYPOS
       {
       X = 15
       Y = 95
       }
-    AnchorAlignment = TopLeft
+    ANCHORALIGNMENT = TOPLEFT
     }
-$!LineMap  [1]
-  Name = 'Second Order'
-  Assign
+$!LINEMAP  [1]
+  NAME = 'Second Order'
+  ASSIGN
     {
-    Zone = 3
-    XAxisVar = 1
-    YAxisVar = 2
+    ZONE = 3
+    XAXISVAR = 1
+    YAXISVAR = 2
     }
-  Lines
+  LINES
     {
-    Color = Black
-    LineThickness = 0.4
+    COLOR = BLACK
+    LINETHICKNESS = 0.4
     }
-  Symbols
+  SYMBOLS
     {
-    Show = No
-    SymbolShape
+    SHOW = NO
+    SYMBOLSHAPE
       {
-      GeomShape = Circle
+      GEOMSHAPE = CIRCLE
       }
-    Color = Black
-    FillColor = Green
-    Size = 1
-    LineThickness = 0.4
+    COLOR = BLACK
+    FILLCOLOR = GREEN
+    SIZE = 1
+    LINETHICKNESS = 0.4
     }
-  BarCharts
+  BARCHARTS
     {
-    Color = Green
-    FillColor = Green
+    COLOR = GREEN
+    FILLCOLOR = GREEN
     }
-  ErrorBars
+  ERRORBARS
     {
-    Color = Green
+    COLOR = GREEN
     }
-$!LineMap  [2]
-  Name = 'Multiscale K-Exact'
-  Assign
+$!LINEMAP  [2]
+  NAME = 'Multiscale K-Exact'
+  ASSIGN
     {
-    Zone = 1
-    XAxisVar = 1
-    YAxisVar = 2
+    ZONE = 1
+    XAXISVAR = 1
+    YAXISVAR = 2
     }
-  Lines
+  LINES
     {
-    Color = Red
-    LineThickness = 0.4
+    COLOR = RED
+    LINETHICKNESS = 0.4
     }
-  Symbols
+  SYMBOLS
     {
-    SymbolShape
+    SYMBOLSHAPE
       {
-      GeomShape = Circle
+      GEOMSHAPE = CIRCLE
       }
-    Color = Red
-    FillColor = Red
-    Size = 1
-    LineThickness = 0.4
+    COLOR = RED
+    FILLCOLOR = RED
+    SIZE = 1
+    LINETHICKNESS = 0.4
     }
-  BarCharts
+  BARCHARTS
     {
-    Color = Red
-    FillColor = Red
+    COLOR = RED
+    FILLCOLOR = RED
     }
-  ErrorBars
+  ERRORBARS
     {
-    Color = Red
+    COLOR = RED
     }
-$!LineMap  [3]
-  Name = 'Multiscale L2-Projection'
-  Assign
+$!LINEMAP  [3]
+  NAME = 'Multiscale L2-Projection'
+  ASSIGN
     {
-    Zone = 2
-    XAxisVar = 1
-    YAxisVar = 2
+    ZONE = 2
+    XAXISVAR = 1
+    YAXISVAR = 2
     }
-  Lines
+  LINES
     {
-    Color = Blue
-    LineThickness = 0.4
+    COLOR = BLUE
+    LINETHICKNESS = 0.4
     }
-  Symbols
+  SYMBOLS
     {
-    Color = Blue
-    FillColor = Red
-    Size = 1
-    LineThickness = 0.4
+    COLOR = BLUE
+    FILLCOLOR = RED
+    SIZE = 1
+    LINETHICKNESS = 0.4
     }
-  BarCharts
+  BARCHARTS
     {
-    Color = Red
-    FillColor = Red
+    COLOR = RED
+    FILLCOLOR = RED
     }
-  ErrorBars
+  ERRORBARS
     {
-    Color = Red
+    COLOR = RED
     }
-$!XYLineAxis 
-  DepXToYRatio = 1
-$!XYLineAxis 
-  XDetail 1
+$!XYLINEAXIS 
+  DEPXTOYRATIO = 1
+$!XYLINEAXIS 
+  XDETAIL 1
     {
-    CoordScale = Log
-    RangeMin = 0.010000000000000000208
-    RangeMax = 1
-    GRSpacing = 0.2
-    Title
+    COORDSCALE = LOG
+    RANGEMIN = 0.010000000000000000208
+    RANGEMAX = 1
+    GRSPACING = 0.2
+    TICKLABEL
       {
-      TitleMode = UseText
-      Text = 'h = N^(-1/3)'
+      OFFSET = 2
       }
-    }
-$!XYLineAxis 
-  YDetail 1
-    {
-    CoordScale = Log
-    RangeMin = 1.0000000000000000818E-05
-    RangeMax = 1
-    GRSpacing = 0.2
-    Title
+    TITLE
       {
-      TitleMode = UseText
-      Text = 'Mach Interpolation Error'
+      TITLEMODE = USETEXT
+      TEXT = 'h = N^(-1/3)'
+      OFFSET = 6
       }
     }
-$!LinePlotLayers 
-  ShowSymbols = Yes
-$!FrameControl ActivateByNumber
-  Frame = 1
-$!SetStyleBase Config
+$!XYLINEAXIS 
+  YDETAIL 1
+    {
+    COORDSCALE = LOG
+    RANGEMIN = 1.0000000000000000818E-05
+    RANGEMAX = 1
+    GRSPACING = 0.2
+    TITLE
+      {
+      TITLEMODE = USETEXT
+      TEXT = 'Mach Interpolation Error'
+      }
+    }
+$!LINEPLOTLAYERS 
+  SHOWSYMBOLS = YES
+$!FRAMECONTROL ACTIVATEBYNUMBER
+  FRAME = 1
+$!SETSTYLEBASE CONFIG
