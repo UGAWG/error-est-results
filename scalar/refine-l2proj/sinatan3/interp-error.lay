@@ -1,5 +1,5 @@
 #!MC 1410
-$!VarSet |LFDSFN1| = '"interp-error.dat" "second.dat"'
+$!VarSet |LFDSFN1| = '"../../refine/sinatan3/interp-error.dat" "interp-error.dat" "second.dat"'
 $!VarSet |LFDSVL1| = '"V1" "V2"'
 $!SETSTYLEBASE FACTORY
 $!PLOTOPTIONS 
@@ -77,7 +77,7 @@ $!FRAMENAME  = 'Frame 001'
 $!GLOBALTIME 
   SOLUTIONTIME = 0
 $!DELETELINEMAPS 
-$!ACTIVELINEMAPS  =  [1-2]
+$!ACTIVELINEMAPS  =  [1-3]
 $!GLOBALLINEPLOT 
   DATALABELS
     {
@@ -101,7 +101,7 @@ $!LINEMAP  [1]
   NAME = 'Second Order'
   ASSIGN
     {
-    ZONE = 2
+    ZONE = 3
     XAXISVAR = 1
     YAXISVAR = 2
     }
@@ -132,7 +132,7 @@ $!LINEMAP  [1]
     COLOR = GREEN
     }
 $!LINEMAP  [2]
-  NAME = 'Multiscale'
+  NAME = 'Multiscale K-Exact'
   ASSIGN
     {
     ZONE = 1
@@ -164,19 +164,53 @@ $!LINEMAP  [2]
     {
     COLOR = RED
     }
+$!LINEMAP  [3]
+  NAME = 'Multiscale L2-Projection'
+  ASSIGN
+    {
+    ZONE = 2
+    XAXISVAR = 1
+    YAXISVAR = 2
+    }
+  LINES
+    {
+    COLOR = BLUE
+    LINETHICKNESS = 0.4
+    }
+  SYMBOLS
+    {
+    COLOR = BLUE
+    FILLCOLOR = RED
+    SIZE = 1
+    LINETHICKNESS = 0.4
+    }
+  BARCHARTS
+    {
+    COLOR = RED
+    FILLCOLOR = RED
+    }
+  ERRORBARS
+    {
+    COLOR = RED
+    }
 $!XYLINEAXIS 
   DEPXTOYRATIO = 1
 $!XYLINEAXIS 
   XDETAIL 1
     {
     COORDSCALE = LOG
-    RANGEMIN = 0.01
+    RANGEMIN = 0.010000000000000000208
     RANGEMAX = 1
     GRSPACING = 0.2
+    TICKLABEL
+      {
+      OFFSET = 2
+      }
     TITLE
       {
       TITLEMODE = USETEXT
       TEXT = 'h = N^(-1/3)'
+      OFFSET = 6
       }
     }
 $!XYLINEAXIS 

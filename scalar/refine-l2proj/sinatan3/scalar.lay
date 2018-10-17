@@ -1,6 +1,6 @@
 #!MC 1410
 $!VarSet |LFDSFN1| = '"Flow/ref_acceptance_scalar.plt"'
-$!VarSet |LFDSVL1| = '"x" "y" "z" "s"'
+$!VarSet |LFDSVL1| = '"x" "y" "z" "s1"'
 $!SETSTYLEBASE FACTORY
 $!PLOTOPTIONS 
   SUBDIVIDEALLCELLS = NO
